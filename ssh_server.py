@@ -54,8 +54,7 @@ class SshServer(paramiko.ServerInterface):
             sock.bind((self.config.ip, self.config.port))
             host_key = paramiko.RSAKey.generate(1024) if self.config.key_path == '' else paramiko.RSAKey(
                 filename=self.config.key_path)
-
-            print('***SSH PROXY SERVER STARTED***')
+            print('***SSH PROXY SERVER {}:{} STARTED***'.format(self.config.ip, self.config.port))
         except Exception as e:
             traceback.print_exc()
             sys.exit(1)
