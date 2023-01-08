@@ -2,7 +2,6 @@ import socket
 import sys
 import threading
 import traceback
-
 import paramiko
 
 from config_manager import ServerConfig
@@ -12,7 +11,6 @@ from ssh_client import SshClient
 class SshServer(paramiko.ServerInterface):
 
     def __init__(self, ssh_client: SshClient, config: ServerConfig):
-        # paramiko.util.log_to_file("server.log")
         self.event = threading.Event()
         self.ssh_client = ssh_client
         self.config = config
