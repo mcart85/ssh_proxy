@@ -14,7 +14,8 @@ config_manager = ConfigManager(config_ini_path=config_path)
 
 custom_response = CustomResponse(config_manager.custom_response_config)
 
-logger = ResponseLogger(config_manager.client_config, log_tags=config_manager.logTags)
+logger = ResponseLogger(config_manager.client_config, log_out_tags=config_manager.log_out_tags,
+                        log_err_tags=config_manager.log_err_tags)
 
 ssh_client = SshClient(config_manager.client_config, logger=logger, custom_response=custom_response)
 
